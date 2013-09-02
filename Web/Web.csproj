@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="audio\original.mp3" />
-    <Content Include="audio\original.wav" />
     <Content Include="audio\remix.mp3" />
     <Content Include="images\1-tall.gif" />
     <Content Include="images\1.gif" />
