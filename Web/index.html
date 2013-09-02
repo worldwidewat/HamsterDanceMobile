@@ -4,23 +4,33 @@
     <title>Hamster Dance (Mobile)</title>
     <style>
         body {
-            background-image: url(4-tall.gif), url(3-tall.gif), url(2-tall.gif), url(1-tall.gif);
+            background-image: url(images/4-tall.gif), url(images/3-tall.gif), url(images/2-tall.gif), url(images/1-tall.gif);
+        }
+
+        .controls {
+            background-color: rgba(255, 255, 255, .80);
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            border: 1px solid #000;
+            font-size: 200%;
+            cursor: pointer;
         }
     </style>
-    <script type="text/javascript">
-        function init() {
-            var myAudio = document.getElementById("audio");
-            myAudio.addEventListener('ended', loopAudio, false);
-            myAudio.play();
-        }
-        function loopAudio() {
-            var myAudio = document.getElementById("audio");
-            myAudio.play();
-        }
-    </script>
 </head>
-    <body onload="init();">
-        <!-- https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html -->
-        <audio id="audio" src="thebeats.mp3" controls></audio>
-    </body>
+<body onload="init();">
+    <!-- https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html -->
+    <div id="controls">
+        <span class="controls" id="original-controls" onclick="document.getElementById('original').play();">&#9658; Original</span>
+        <span class="controls" id="remix-controls" onclick="document.getElementById('remix').play();">&#9658; Remix</span>
+    </div>
+    <audio id="original">
+        <source src="audio/original.mp3" type="audio/mp3" />
+        <source src="audio/original.ogg" type="audio/ogg" />
+    </audio>
+    <audio id="remix">
+        <source src="audio/remix.mp3" type="audio/mp3" />
+        <source src="audio/remix.ogg" type="audio/ogg" />
+    </audio>
+</body>
 </html>
