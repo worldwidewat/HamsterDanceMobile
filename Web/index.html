@@ -1,84 +1,70 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta name="viewport" content="width=device-width" />
     <title>Hamster Dance (Mobile)</title>
     <style>
         body {
+            margin: 0;
+            position: relative;
             background-image: url(images/4-tall.gif), url(images/3-tall.gif), url(images/2-tall.gif), url(images/1-tall.gif);
         }
 
-        .control {
-            border: 1px solid #000;
-            font-size: 24px;
-            cursor: pointer;
-            float: left;
-        }
-
-        .playing {
-            background-color: rgba(127, 127, 127, .90);
-            color: #fff;
-        }
-
-        div, a#credits-link {
-            background-color: rgba(255, 255, 255, .90);
-            margin: 10px;
+        label, section {
+            background-color: #efefef;
             padding: 5px 10px;
+            box-shadow: 0 0 3px 3px #fff;
         }
 
-        #credits-link {
-            float: right;
+        label, audio {
+            position: fixed;
+            top: 0;
         }
 
-        #credits {
-            clear: both;
+        label {
+            right: 0;
+            border-bottom-left-radius: 5px;
         }
+
+        section {
+            /* clear the nav bar */
+            padding-top: 24px;
+        }
+
+        /* credit form this novel CSS-only show/hide toggle goes to http://cssdeck.com/labs/css-only-showhide */
+        input[type=checkbox] {
+            display: none;
+        }
+
+            input[type=checkbox] ~ section {
+                display: none;
+            }
+
+            input[type=checkbox]:checked ~ section {
+                display: block;
+            }
     </style>
 </head>
 <body>
-    <div class="control">
-        <audio hidden="hidden">
-            <source src="audio/original.mp3" type="audio/mp3" />
-            <source src="audio/original.ogg" type="audio/ogg" />
-        </audio>
-        &#9658; Original
-    </div>
-    <div class="control">
-        <audio hidden="hidden">
-            <source src="audio/remix.mp3" type="audio/mp3" />
-            <source src="audio/remix.ogg" type="audio/ogg" />
-        </audio>
-        &#9658; Remix
-    </div>
-    <a href="#credits" id="credits-link">Credits / About</a>
-    <div id="credits" style="display: none">
-        Credit for songs, images, idea, etc. goes to the original creators. More info at:
+    <audio controls>
+        <source src="audio/remix.mp3" type="audio/mp3" />
+        <source src="audio/remix.ogg" type="audio/ogg" />
+        <p>Your browser can't play this because it's lame :(. Try <a href="audio/remix.mp3">this link</a> instead.</p>
+    </audio>
+    <label for="show-credits">About</label>
+    <input id="show-credits" type="checkbox" />
+    <section id="credits">
+        <p>Credit for the song, images, idea, etc. goes to the original creators. More info at:</p>
         <ul>
             <li><a href="http://www.hampsterdance.com/classics/originaldance.htm">Hampster Dance Original</a></li>
             <li><a href="http://knowyourmeme.com/memes/hampster-dance">Know Your Meme: Hampster Dance</a></li>
         </ul>
-    </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $('.control').on("click", function () {
-                var control = $(this);
-                var audio = control.find('audio');
-                audio.on('ended', function () {
-                    control.removeClass('playing');
-                });
-                if (audio[0].paused === false) {
-                    audio[0].pause();
-                    control.removeClass('playing');
-                } else {
-                    audio[0].play();
-                    control.addClass('playing');
-                }
-            });
-
-            $('#credits-link').on('click', function () {
-                $('#credits').slideToggle();
-            });
-        })
-    </script>
+        <p>
+            Credit for this <a href="https://github.com/worldwidewat/HamsterDanceMobile">open source</a>, 
+            mobile-friendly version of the awesomness that rocked the 1990s
+            goes to <a href="http://twitter.com/mharen">@mharen</a> and the neat 
+            folks behind <a href="http://upboat.me">upboat.me</a>.
+        </p>
+    </section>
 </body>
 </html>
