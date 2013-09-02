@@ -67,6 +67,9 @@
     <Content Include="images\3.gif" />
     <Content Include="images\4-tall.gif" />
     <Content Include="images\4.gif" />
+    <Content Include="images\apple-touch-icon.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\favicon.png" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
