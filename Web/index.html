@@ -7,7 +7,20 @@
             background-image: url(4-tall.gif), url(3-tall.gif), url(2-tall.gif), url(1-tall.gif);
         }
     </style>
+    <script type="text/javascript">
+        function init() {
+            var myAudio = document.getElementById("audio");
+            myAudio.addEventListener('ended', loopAudio, false);
+            myAudio.play();
+        }
+        function loopAudio() {
+            var myAudio = document.getElementById("audio");
+            myAudio.play();
+        }
+    </script>
 </head>
-<body>
-</body>
+    <body onload="init();">
+        <!-- https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html -->
+        <audio id="audio" src="thebeats.mp3" controls></audio>
+    </body>
 </html>
