@@ -57,18 +57,26 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1-tall.gif" />
-    <Content Include="2-tall.gif" />
-    <Content Include="3-tall.gif" />
-    <Content Include="4-tall.gif" />
+    <Content Include="audio\original.mp3" />
+    <Content Include="audio\original.wav" />
+    <Content Include="audio\remix.mp3" />
+    <Content Include="images\1-tall.gif" />
+    <Content Include="images\1.gif" />
+    <Content Include="images\2-tall.gif" />
+    <Content Include="images\2.gif" />
+    <Content Include="images\3-tall.gif" />
+    <Content Include="images\3.gif" />
+    <Content Include="images\4-tall.gif" />
+    <Content Include="images\4.gif" />
     <Content Include="index.html" />
-    <Content Include="thebeats.mp3" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="audio\original.ogg" />
+    <Content Include="audio\remix.ogg" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
