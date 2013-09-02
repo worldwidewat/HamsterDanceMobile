@@ -32,26 +32,22 @@
         #credits {
             clear: both;
         }
-
-        audio {
-            display: none;
-        }
     </style>
 </head>
 <body>
-    <div class="control" id="original-track">
-        <audio>
+    <div class="control">
+        <audio hidden="hidden">
             <source src="audio/original.mp3" type="audio/mp3" />
             <source src="audio/original.ogg" type="audio/ogg" />
         </audio>
-        <span class="button">&#9658;</span> Original
+        &#9658; Original
     </div>
-    <div class="control" id="remix-track">
-        <audio>
+    <div class="control">
+        <audio hidden="hidden">
             <source src="audio/remix.mp3" type="audio/mp3" />
             <source src="audio/remix.ogg" type="audio/ogg" />
         </audio>
-        <span class="button">&#9658;</span> Remix
+        &#9658; Remix
     </div>
     <a href="#credits" id="credits-link">Credits / About</a>
     <div id="credits" style="display: none">
