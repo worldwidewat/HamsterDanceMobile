@@ -26,8 +26,6 @@
         }
 
         #controls {
-            text-decoration: none;
-            color: #000;
             padding: 10px;
             line-height: 0;
             left: 50%;
@@ -51,6 +49,14 @@
                 border-bottom-right-radius: 5px;
                 transition: all .8s ease;
                 background-color: #efefef;
+            }
+
+            a#controls:link,a#controls:visited,a#controls:hover,a#controls:active {
+                outline: none;
+                color: #000;
+                text-decoration: none;
+                /* prevent ugly flashing on ios via http://stackoverflow.com/a/8247464/29 */
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
             }
 
         section {
