@@ -25,13 +25,11 @@
             position: fixed;
         }
 
-        label {
-            top: 0;
-            right: 0;
-            border-bottom-left-radius: 5px;
-        }
-
         #controls {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+            line-height: 0;
             left: 50%;
             margin-left: -.5em;
             top: 50%;
@@ -40,6 +38,7 @@
             border-radius: 5px;
             transition: all .8s ease;
             background-color: #00CDFF;
+            z-index: 1;
         }
 
             #controls.icon-pause {
@@ -47,7 +46,7 @@
                 left: 0;
                 margin-left: 0;
                 margin-top: 0;
-                font-size: 4em;
+                font-size: 2em;
                 border-radius: 0;
                 border-bottom-right-radius: 5px;
                 transition: all .8s ease;
@@ -55,7 +54,15 @@
             }
 
         section {
-            padding-top: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        label {
+            z-index: 3;
+            top: 0;
+            right: 0;
+            border-bottom-left-radius: 5px;
         }
 
         /* credit form this novel CSS-only show/hide toggle goes to http://cssdeck.com/labs/css-only-showhide */
@@ -66,13 +73,6 @@
             input[type=checkbox]:checked ~ section {
                 display: block;
             }
-
-        a {
-            text-decoration: none;
-            color: #000;
-            padding: 10px;
-            line-height: 0;
-        }
 
         @font-face {
             font-family: 'icomoon';
