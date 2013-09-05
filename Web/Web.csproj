@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="audio\original.mp3" />
     <Content Include="audio\remix.mp3" />
+    <Content Include="audio\remix.mp4" />
     <Content Include="fonts\icomoon.dev.svg" />
     <Content Include="fonts\icomoon.svg" />
     <Content Include="images\1-tall.gif" />
