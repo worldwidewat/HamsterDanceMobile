@@ -12,47 +12,114 @@
             background-image: url(images/4-tall.gif), url(images/3-tall.gif), url(images/2-tall.gif), url(images/1-tall.gif);
         }
 
-        label, section {
+        label, section, #controls {
             background-color: #efefef;
-            padding: 5px 10px;
             box-shadow: 0 0 3px 3px #fff;
         }
 
-        label, audio {
+        label, section {
+            padding: 5px 10px;
+        }
+
+        label, #controls {
             position: fixed;
-            top: 0;
         }
 
         label {
+            top: 0;
             right: 0;
             border-bottom-left-radius: 5px;
         }
 
+        #controls {
+            left: 50%;
+            margin-left: -.5em;
+            top: 50%;
+            margin-top: -.5em;
+            font-size: 4em;
+            border-radius: 5px;
+            transition: all .8s ease;
+            background-color: #00CDFF;
+        }
+
+            #controls.icon-pause {
+                top: 0;
+                left: 0;
+                margin-left: 0;
+                margin-top: 0;
+                font-size: 4em;
+                border-radius: 0;
+                border-bottom-right-radius: 5px;
+                transition: all .8s ease;
+                background-color: #efefef;
+            }
+
         section {
-            /* clear the nav bar */
             padding-top: 24px;
         }
 
         /* credit form this novel CSS-only show/hide toggle goes to http://cssdeck.com/labs/css-only-showhide */
-        input[type=checkbox] {
+        input[type=checkbox], input[type=checkbox] ~ section {
             display: none;
         }
-
-            input[type=checkbox] ~ section {
-                display: none;
-            }
 
             input[type=checkbox]:checked ~ section {
                 display: block;
             }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+            line-height: 0;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot');
+            src: url('fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('fonts/icomoon.woff') format('woff'), url('fonts/icomoon.ttf') format('truetype'), url('fonts/icomoon.svg#icomoon') format('svg');
+        }
+
+        .icon-pause > span, .icon-play > span {
+            font-family: 'icomoon';
+            speak: none;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+        }
+
+            .icon-pause > span:before {
+                content: "\e002";
+            }
+
+            .icon-play > span:before {
+                content: "\e000";
+            }
     </style>
+    <script>
+        function toggle() {
+            var audio = document.getElementsByTagName("audio")[0];
+            if (audio.paused) {
+                audio.play();
+            }
+            else {
+                audio.pause();
+            }
+        }
+        function stateChanged(audio) {
+            var controls = document.getElementById("controls");
+            var value = 'icon-' + (audio.paused ? 'play' : 'pause');
+            controls.className = value;
+        }
+    </script>
 </head>
 <body>
-    <audio controls autoplay>
+    <audio onplaying="stateChanged(this);" onpause="stateChanged(this);">
         <source src="audio/remix.mp3" type="audio/mp3" />
         <source src="audio/remix.ogg" type="audio/ogg" />
         <p>Your browser can't play this because it's lame :(. Try <a href="audio/remix.mp3">this link</a> instead.</p>
     </audio>
+    <a id="controls" href="#" onclick="toggle();return false;" class="icon-play"><span id="play-pause"></span></a>
     <label for="show-credits">About</label>
     <input id="show-credits" type="checkbox" />
     <section id="credits">
